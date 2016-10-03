@@ -3,13 +3,11 @@ namespace Config;
 
 Class App
 {
-	public function __construct()
+	public static function get()
 	{
+		$config = [
+			'baseURI' => 'comsci'
+		];
 		return $config;
 	}
-	
-	protected $config = [
-		'baseURL' => 'comsci'
-	];
-
 }

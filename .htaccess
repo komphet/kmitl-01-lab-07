@@ -1,3 +1,2 @@
 RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-F
-RewriteRule !\.(js|ico|gif|jpg|png|css)$ index.php
+RewriteRule (register)$ index.php?action=register

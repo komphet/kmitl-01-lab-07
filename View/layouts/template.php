@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
-<?php require('layouts/head.php'); ?>
+@include('layouts/head')
 <body>
 <!-- MODALS -->
 
 <!-- MAIN WRAPPER -->
 <div class="body-wrap">
-	<?php require('layouts/header.php'); ?>
+	@include('layouts/header')
     <!-- MAIN CONTENT -->
     <section class="slice slice-lg bg-image" style="background-image:url(frontend/images/backgrounds/full-bg-1.jpg);">
     	@yield('content')
     </section>
-    <?php require('layouts/footer.php'); ?>
+    @include('layouts/footer')
 </div>
-
+@yield('asrgs')
 
 </body>
 </html>
