@@ -12,13 +12,14 @@
 	                    <i class="fa fa-bars icon-custom"></i>
 	                </button>
 
-	                <a class="navbar-brand" href="index.html" title="Boomerang | One template. Infinite solutions">
-	                    <img src="frontend/images/boomerang-logo-black.png" alt="Boomerang | One template. Infinite solutions">
+	                <a class="navbar-brand" href="{{ self::url('/') }}" title="Boomerang | One template. Infinite solutions">
+	                    <img src="View/frontend/images/logo-db.png" alt="Boomerang | One template. Infinite solutions">
 	                </a>
 	            </div>
 	            <div class="navbar-collapse collapse">
 	                <ul class="nav navbar-nav navbar-right">
-	                    <li><a href="">home</a></li>
+	                    <li><a href="{{ self::url('/') }}">home</a></li>
+	                    <li><a href="{{ self::url('register') }}">register</a></li>
 	                </ul>
 
 	            </div><!--/.nav-collapse -->

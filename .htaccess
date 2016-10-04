@@ -1,2 +1,3 @@
 RewriteEngine On
 RewriteRule (register)$ index.php?action=register
+RewriteRule (setup)$ index.php?action=setup

@@ -65,7 +65,7 @@
             </div>
             <div class="col-lg-3">
                 <a href="http://www.webpixels.ro" title="Made with love by Web Pixels" target="_blank" class="">
-                    <img src="frontend/images/webpixels-footer-logo.png" alt="Web Pixels - Designing Forward | Logo" class="pull-right">
+                    <img src="View/frontend/images/webpixels-footer-logo.png" alt="Web Pixels - Designing Forward | Logo" class="pull-right">
                 </a>
             </div>
         </div>
