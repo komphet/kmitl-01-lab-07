@@ -1,6 +1,8 @@
 <?php
 namespace Controller;
 use Vender\View;
+use Vender\DB;
+use Vender\Helper;
 use Config\App;
 
 Class SetupController extends View
@@ -36,7 +38,30 @@ Class SetupController extends View
 
 		fwrite($fh, $file_contents);
 		fclose($fh);
-		$config = App::all();
-		return View::make('page.setup',compact('config'));
+
+		$db = new DB;
+		if(!$db->connect()) return Helper::redirect('setup');
+		if($request['createTable']){
+			$create = $db->create('person',[
+				'id INT(6) UNSIGNED PRIMARY KEY',
+			    'name VARCHAR(25) CHARACTER SET utf8 NOT NULL',
+			    'date_of_birth DATE NOT NULL',
+			    'weight INT(6) NOT NULL',
+			    'gender ENUM("M","F") CHARACTER SET utf8 NOT NULL'
+			]);
+			if(!$create) Helper::redirect('setup');
+			$insert = $db->insert('person',[
+				[
+					'id'            => $request['id'],
+					'name'          => $request['fname'].' '.$request['lname'],
+					'date_of_birth' => $request['dateofbirth'],
+					'weight'        => $request['weight'],
+					'gender'        => $request['gender']
+				],
+			]);
+			if(!$insert) Helper::redirect('setup');
+		}
+		Helper::flush('success','ปรับปรุงการตั้งค่าเรียบร้อยแล้ว!');
+		return Helper::redirect('/setup');
 	}
 }

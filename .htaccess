@@ -1,3 +1,7 @@
 RewriteEngine On
 RewriteRule (register)$ index.php?action=register
+RewriteRule (register)/(store)$ index.php?action=register&method=store
+RewriteRule (register)/(edit)/(\d*)$ index.php?action=register&method=update&id=$3
+RewriteRule (register)/(destroy)/(\d*)$ index.php?action=register&method=destroy&id=$3
 RewriteRule (setup)$ index.php?action=setup
+RewriteRule (0176_\d.php)$ index.php

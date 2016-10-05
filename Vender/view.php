@@ -82,6 +82,14 @@ Class View extends Helper
 		}
 
 		echo ($html);
+		$_SESSION['errors'] = null;
+		if(!is_null($_SESSION['flush'])){
+			$flushes = unserialize($_SESSION['flush']);
+			foreach ($flushes as $flush) {
+				unset($_SESSION[$flush]);
+				unset($_SESSION['flush']);
+			}
+		}
 
 	}
 }

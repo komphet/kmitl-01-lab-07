@@ -6,28 +6,13 @@
                 <div class="col">
                    <h4>Contact us</h4>
                    <ul>
-                        <li>5th Avenue, New York - United States</li>
-                        <li>Phone: +10 724 1234 567 | Fax: +10 724 1234 567 </li>
-                        <li>Email: <a href="mailto:hello@example.com" title="Email Us">hello@example.com</a></li>
-                        <li>Skype: <a href="skype:my.business?call" title="Skype us">my-business</a></li>
-                        <li>Creating great templates is our passion</li>
+                        <li>นายคมเพชร มีทรัพย์ รหัสนักศึกษา 59050176</li>
+                        <li>Phone: 08 0535 6935 Line: Komdragon </li>
+                        <li>Email: <a href="mailto:komphetmeesab@hotmail.com" title="Email Us">komphetmeesab@hotmail.com</a></li>
+                        <li>สาขาวิชาวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์</li>
+                        <li>สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</li>
                     </ul>
                  </div>
-            </div>
-            
-            <div class="col-md-3">
-                <div class="col">
-                    <h4>Mailing list</h4>
-                    <p>Sign up if you would like to receive occasional treats from us.</p>
-                    <form class="form-horizontal form-light">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Your email address...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-base" type="button">Go!</button>
-                            </span>
-                        </div>
-                    </form>
-                </div>
             </div>
             
             <div class="col-md-3">
@@ -44,13 +29,14 @@
                 </div>
             </div>
 
-             <div class="col-md-3">
+             <div class="col-md-6">
                 <div class="col">
                     <h4>About us</h4>
                     <p class="no-margin">
-                    Boomerang MultiPurpose Template is a multi-solution product made with simplicity in mind so you can benefit as much as possible from it.
-                    <br><br>
-                    <a href="#" class="btn btn-block btn-base btn-icon fa-check"><span>Try it now</span></a>
+                        เว็บไซต์นี้เป็นผลงานของวิชา Computer Science ซึ่งผู้จัดทำให้ใช้ความรู้ความสามารถที่มีทั้งหมดรังสรรค์ผลงานชิ้นนี้ขึ้นมาด้วย PHP, jQuery, Boomerang template(Base on bootstrap) โครงสร้างหลักของเว็บไซต์ออกแบบให้เป็นเชิงวัตถุ หรือ OOP(Object Oriented Programming) ตาม Pattern ของ MVC(Model-View-Controller) ใช้เทคนิคการ Rewrite URL เพื่อความสวยงาม
+                    </p>
+                    <p>
+                        เนื่องจากผลงานนี้ยังไม่สมบูรณ์เท่าที่ควร จึงอาจมีข้อผิดพลาดได้ หากพบเห็นข้อผิดพลาดส่วนใดของเว็บไซต์ กรุณาแจ้งได้ที่ komphetmeesab@hotmail.com จะเป็นพระคุณยิ่ง
                     </p>
                 </div>
             </div>
@@ -60,7 +46,7 @@
         
         <div class="row">
             <div class="col-lg-9 copyright">
-                2014 © Web Pixels. All rights reserved.
+                2016 © Komphet Meesab. All rights reserved.
                 <a href="#">Terms and conditions</a>
             </div>
             <div class="col-lg-3">

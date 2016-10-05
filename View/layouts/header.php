@@ -18,8 +18,9 @@
 	            </div>
 	            <div class="navbar-collapse collapse">
 	                <ul class="nav navbar-nav navbar-right">
-	                    <li><a href="{{ self::url('/') }}">home</a></li>
-	                    <li><a href="{{ self::url('register') }}">register</a></li>
+	                    <li class="<?php echo ($_GET['action'] == '')? 'active':''; ?>"><a href="{{ self::url('/') }}">home</a></li>
+	                    <!-- <li class="<?php echo ($_GET['action'] == 'register')? 'active':''; ?>"><a href="{{ self::url('register') }}">register</a></li> -->
+	                    <li class="<?php echo ($_GET['action'] == 'setup')? 'active':''; ?>"><a href="{{ self::url('setup') }}">setup</a></li>
 	                </ul>
 
 	            </div><!--/.nav-collapse -->

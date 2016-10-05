@@ -32,6 +32,22 @@
                                 <h2>Setup Website</h2>
                             </div>
                             <div class="form-body">
+                                <?php
+                                    if(!is_null($_SESSION['errors'])){
+                                        echo '<div class="alert alert-danger">';
+                                        foreach ($_SESSION['errors'] as $key => $value) {
+                                            echo '<i class="fa fa-close"></i> ';
+                                            echo $value.'<br>';
+                                        }
+                                        echo '</div>';
+                                    }
+                                    if(!is_null(\Vender\Helper::session('success'))){
+                                        echo '<div class="alert alert-success">';
+                                        echo '<i class="fa fa-check"></i> ';
+                                        echo \Vender\Helper::session('success');
+                                        echo '</div>';
+                                    }
+                                ?>
                                 <form action="{{ self::url('/setup') }}" method="POST" id="frmRegister" class="sky-form">
                                     <fieldset class="no-padding">
                                         <section class="">
@@ -79,8 +95,13 @@
                                             </div>
                                         </section>
                                         <section class="no-margin">
+                                            <label class="checkbox">
+                                                <input id="createTable" onchange="createTablePerson($(this));" type="checkbox" name="createTable" <?php if(\Vender\Helper::session('createTable')) echo'checked'; ?>><i></i>
+                                                <h4 class="title">Create Table "person"</h4>
+                                            </label>
+                                        </section>
+                                        <section id="personTable" class="no-margin" style="<?php if(!\Vender\Helper::session('createTable')) echo'display: none;'; ?>">
 											<table class="table">
-												<caption><h4 class="title-large">Table Name: person</h4></caption>
 												<thead>
 													<tr>
 														<th>Attribute Name</th>
@@ -110,25 +131,23 @@
 													</tr>
 												</tbody>
 											</table>
-                                        </section>
-                                        <section class="no-margin">
                                             <div class="row">
                                                 <section class="col-xs-4">
                                                     <label class="input">
                                                         <i class="icon-append fa fa-user"></i>
-                                                        <input required type="text" name="id" placeholder="ID">
+                                                        <input type="text" name="id" placeholder="ID">
                                                     </label>
                                                 </section>
                                                 <section class="col-xs-4">
                                                     <label class="input">
                                                         <i class="icon-append fa fa-user"></i>
-                                                        <input required type="text" name="fname" placeholder="First Name">
+                                                        <input type="text" name="fname" placeholder="First Name">
                                                     </label>
                                                 </section>
                                                 <section class="col-xs-4">
                                                     <label class="input">
                                                         <i class="icon-append fa fa-user"></i>
-                                                        <input required type="text" name="lname" placeholder="Last Name">
+                                                        <input type="text" name="lname" placeholder="Last Name">
                                                     </label>
                                                 </section>
                                             </div> 
@@ -136,22 +155,22 @@
                                                 <section class="col-xs-4">
                                                     <label class="input">
                                                         <i class="icon-append fa fa-calendar"></i>
-                                                        <input required id="date" type="text" name="dateofbirth" placeholder="Date of Birth">
+                                                        <input id="date" type="text" name="dateofbirth" placeholder="Date of Birth">
                                                     </label>
                                                 </section>
                                                 <section class="col-xs-4">
                                                     <label class="input">
                                                         <i class="icon-append fa fa-sort-numeric-asc"></i>
-                                                        <input required type="text" name="weight" placeholder="Weight">
+                                                        <input type="text" name="weight" placeholder="Weight">
                                                     </label>
                                                 </section>
                                                 <section class="col-xs-4">
                                                     <label class="select">
                                                         <i class="icon-append fa fa-user"></i>
                                                         <!-- <input type="text" name="gender" placeholder="Gender"> -->
-                                                        <select required name="gender" placeholder="Gender">
+                                                        <select name="gender" placeholder="Gender">
                                                         	<option value="M">Male</option>
-                                                        	<option value="M">Female</option>
+                                                        	<option value="F">Female</option>
                                                         </select>
                                                     </label>
                                                 </section>
@@ -180,15 +199,17 @@
         </div>
     </section>
 <script type="text/javascript">
-	var d = new Date();
-	var n = d.getFullYear();
-	$('#date').datepicker({
-		dateFormat: 'yy-mm-dd',
-		prevText: '<i class="fa fa-chevron-left"></i>',
-		nextText: '<i class="fa fa-chevron-right"></i>',
-		changeYear: true,
-		changeMonth: true,
-		yearRange: (n-100)+':'+n
-	});
+	jQuery(document).ready(function($) {
+        createTablePerson($('#createTable'));
+    });
+    function createTablePerson(ele){
+        if(ele.is(':checked')){
+            $('#personTable').slideDown(400);
+            $('#personTable').find('input').attr('required','required');
+        }else{
+            $('#personTable').slideUp(400);
+            $('#personTable').find('input').removeAttr('required');
+        }
+    }
 </script>
 @endsection

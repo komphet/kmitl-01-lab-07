@@ -16,8 +16,8 @@ Class App
 
 	public function config($config){
 		$dataAll = file_get_contents('.env');
-		preg_match('/'.$title.'=.*/', $dataAll, $data);
-		$configData = str_replace($title.'=', '', $data[0]);
+		preg_match('/'.$config.'=.*\s/', $dataAll, $data);
+		$configData = trim( str_replace($config.'=', '', $data[0]) );
 		return $configData;
 	}
 }
