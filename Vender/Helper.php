@@ -7,7 +7,9 @@ Class Helper
 	public static function url($url)
 	{
 		$baseURI = new App;
-		$baseURI = preg_replace('/(\/)$/', '', $baseURI->config('BASE_URL'));
+		$config = ($baseURI->config('BASE_URL')!='')?$baseURI->config('BASE_URL')
+		:'http://'.preg_replace('/\/index.*/', '', $_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF']);
+		$baseURI = preg_replace('/(\/)$/', '', $config);
 		$url = preg_replace('/^(\/)|(\/)$/', '', $url);
 		$newUrl = $baseURI.'/'.$url;
 		return $newUrl;

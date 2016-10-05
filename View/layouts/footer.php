@@ -33,7 +33,7 @@
                 <div class="col">
                     <h4>About us</h4>
                     <p class="no-margin">
-                        เว็บไซต์นี้เป็นผลงานของวิชา Computer Science ซึ่งผู้จัดทำให้ใช้ความรู้ความสามารถที่มีทั้งหมดรังสรรค์ผลงานชิ้นนี้ขึ้นมาด้วย PHP, jQuery, Boomerang template(Base on bootstrap) โครงสร้างหลักของเว็บไซต์ออกแบบให้เป็นเชิงวัตถุ หรือ OOP(Object Oriented Programming) ตาม Pattern ของ MVC(Model-View-Controller) ใช้เทคนิคการ Rewrite URL เพื่อความสวยงาม
+                        เว็บไซต์นี้เป็นผลงานของวิชา Computer Science ซึ่งผู้จัดทำให้ใช้ความรู้ความสามารถที่มีทั้งหมดรังสรรค์ผลงานชิ้นนี้ขึ้นมาด้วย PHP, SQL, jQuery, Boomerang template(Base on bootstrap) โครงสร้างหลักของเว็บไซต์ออกแบบให้เป็นเชิงวัตถุ หรือ OOP(Object Oriented Programming) ตาม Pattern ของ MVC(Model-View-Controller) ใช้เทคนิคการ Rewrite URL เพื่อความสวยงาม
                     </p>
                     <p>
                         เนื่องจากผลงานนี้ยังไม่สมบูรณ์เท่าที่ควร จึงอาจมีข้อผิดพลาดได้ หากพบเห็นข้อผิดพลาดส่วนใดของเว็บไซต์ กรุณาแจ้งได้ที่ komphetmeesab@hotmail.com จะเป็นพระคุณยิ่ง
