@@ -36,7 +36,7 @@ Class Model extends DB
 		$instance = new static;
 		try {
 			$db = new DB;
-			$stmt = $db->connect()->prepare("SELECT * FROM ".$instance->table()." WHERE ".$column." ".$oper. " :key;");
+			$stmt = $db->connect()->prepare("SELECT * FROM ".$instance->table()." WHERE '".$column."' ".$oper. " :key;");
 			$stmt->bindParam(':key',$key);
 		    if($stmt->execute()){
 		    	return $stmt->fetchAll();

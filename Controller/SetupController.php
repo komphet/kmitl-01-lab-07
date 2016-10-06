@@ -43,20 +43,20 @@ Class SetupController extends View
 		if(!$db->connect()) return Helper::redirect('setup');
 		if($request['createTable']){
 			$create = $db->create('person',[
-				'id INT(6) UNSIGNED PRIMARY KEY',
-			    'name VARCHAR(25) CHARACTER SET utf8 NOT NULL',
-			    'date_of_birth DATE NOT NULL',
-			    'weight INT(6) NOT NULL',
-			    'gender ENUM("M","F") CHARACTER SET utf8 NOT NULL'
+				'`ID` VARCHAR(10) PRIMARY KEY',
+			    '`Name` VARCHAR(25) CHARACTER SET utf8 NOT NULL',
+			    '`Date of Birth` DATE NOT NULL',
+			    '`Weight` INT(6) NOT NULL',
+			    '`Gender` ENUM("M","F") CHARACTER SET utf8 NOT NULL'
 			]);
 			if(!$create) Helper::redirect('setup');
 			$insert = $db->insert('person',[
 				[
-					'id'            => $request['id'],
-					'name'          => $request['fname'].' '.$request['lname'],
-					'date_of_birth' => $request['dateofbirth'],
-					'weight'        => $request['weight'],
-					'gender'        => $request['gender']
+					'ID'            => $request['id'],
+					'Name'          => $request['fname'].' '.$request['lname'],
+					'Date of Birth' => $request['dateofbirth'],
+					'Weight'        => $request['weight'],
+					'Gender'        => $request['gender']
 				],
 			]);
 			if(!$insert) Helper::redirect('setup');

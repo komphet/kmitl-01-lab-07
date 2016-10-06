@@ -37,11 +37,11 @@ Class RegisterController extends View
 		if(!$db->connect()) return Helper::redirect('setup');
 		$insert = $db->insert('person',[
 			[
-				'id'            => $request['id'],
-				'name'          => $request['fname'].' '.$request['lname'],
-				'date_of_birth' => $request['dateofbirth'],
-				'weight'        => $request['weight'],
-				'gender'        => $request['gender'],
+				'ID'            => $request['id'],
+				'Name'          => $request['fname'].' '.$request['lname'],
+				'Date of Birth' => $request['dateofbirth'],
+				'Weight'        => $request['weight'],
+				'Gender'        => $request['gender'],
 			],
 		]);
 		if(!$insert) Helper::redirect('setup');
@@ -57,11 +57,11 @@ Class RegisterController extends View
 	public function update($request)
 	{
 		Person::update($_GET['id'],[
-			'id'=>$request['id'],
-			'date_of_birth'=>$request['dateofbirth'],
-			'name'=>$request['fname'].' '.$request['lname'],
-			'weight'=>$request['weight'],
-			'gender'=>$request['gender'],
+			'ID'=>$request['id'],
+			'Date of Birth'=>$request['dateofbirth'],
+			'Name'=>$request['fname'].' '.$request['lname'],
+			'Weight'=>$request['weight'],
+			'Gender'=>$request['gender'],
 		]);
 		
 		return Helper::redirect('/');

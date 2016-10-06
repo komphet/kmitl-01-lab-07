@@ -56,29 +56,32 @@ Class DB
 	}
 
 	public function insert($table,$data){
+
 		try
 		{
 			foreach ($data as $key => $value) {
 				$count = count($value);
-				$stmtStr = '$stmt = $this->db->prepare("INSERT INTO '.$table.' (';
+				$stmtStr = '$stmt = $this->db->prepare("INSERT INTO `'.$table.'` (';
 				foreach ($value as $keyColumn => $valueColumn) {
-					$stmtStr .= $keyColumn;
+					$stmtStr .= '`'.$keyColumn.'`';
 					$k++;
 					if($count != $k) $stmtStr .= ',';
 				}
 				$stmtStr .= ') VALUES (';
 				foreach ($value as $keyColumn => $valueColumn) {
-					$stmtStr .= ':'.$keyColumn;
+					$stmtStr .= ':'.str_replace(' ', '_', $keyColumn);
 					$j++;
 					if($count != $j) $stmtStr .= ',';
 				}
 				$stmtStr .= ')");';
+
 				eval($stmtStr);
 
 				foreach ($value as $keyColumn => $valueColumn) {
-					$stmt->bindParam(':'.$keyColumn, ${$keyColumn});
-					${$keyColumn} = $valueColumn;
+					$stmt->bindParam(':'.str_replace(' ', '_', $keyColumn), ${str_replace(' ', '_', $keyColumn)});
+					${str_replace(' ', '_', $keyColumn)} = $valueColumn;
 				}
+				//var_dump($stmtStr);
 
 				$stmt->execute();
 				return true;
@@ -96,7 +99,7 @@ Class DB
 
 		try {
 			$db = new DB;
-			$stmt = $db->connect()->prepare("DELETE FROM ".$table." WHERE id = :id");
+			$stmt = $db->connect()->prepare("DELETE FROM ".$table." WHERE `ID` = :id");
 		    if(is_array($id)){
 		    	foreach ($id as $value) {
 		    		$stmt->bindParam(':id',$value);
@@ -121,14 +124,14 @@ Class DB
 			$db = new DB;
 			$stmtStr = '$stmt = $db->connect()->prepare("UPDATE '.$table.' SET ';
 				foreach ($data as $key => $value) {
-					$stmtStr .= $key.'=:'.$key;
+					$stmtStr .= '`'.$key.'`=:'.str_replace(' ', '_', $key);
 					$g++;
 					if($g != count($data)) $stmtStr .= ', ';
 				}
-			$stmtStr .=' WHERE id = '.$id.'");';
+			$stmtStr .=' WHERE `ID` = '.$id.'");';
 			eval($stmtStr);
 			foreach ($data as $keydata => $valuedata) {
-				$stmt->bindValue(':'.$keydata,$valuedata);
+				$stmt->bindValue(':'.str_replace(' ', '_', $keydata),$valuedata);
 			}
 			$stmt->execute();
 			return true;

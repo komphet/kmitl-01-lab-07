@@ -29,33 +29,33 @@
     				<?php
     					if(count($members) > 0){
 	    					foreach ($members as $key => $member) {
-	    						$gender = ($member['gender'] == 'M')? 'ชาย' : 'หญิง';
+	    						$gender = ($member['Gender'] == 'M')? 'ชาย' : 'หญิง';
 	    						$tz  = new DateTimeZone('Asia/Bangkok');
-		    					$age = DateTime::createFromFormat('Y-m-d', $member['date_of_birth'], $tz)
+		    					$age = DateTime::createFromFormat('Y-m-d', $member['Date of Birth'], $tz)
 									     ->diff(new DateTime('now', $tz))
 									     ->y;
-								$name = explode(' ', $member['name']);
+								$name = explode(' ', $member['Name']);
 	    						echo '<div class="col-sm-6">';
 				    				echo '<div class="wp-block hero white" style="padding: 10px;">';
-				    						echo '<a onclick="return confirm(\'คุณต้องการลบ Member นี้หรือไม่?\')" href="'.\Vender\Helper::url('/register/destroy/'.$member['id']).'" class="badge-corner">';
+				    						echo '<a onclick="return confirm(\'คุณต้องการลบ Member นี้หรือไม่?\')" href="'.\Vender\Helper::url('/register/destroy/'.$member['ID']).'" class="badge-corner">';
 											    echo '<span class="fa fa-remove"></span>';
 											echo '</a>';
-				    					echo '<div class="row" id="edit-id-'.$member['id'].'" style="display:none;">';
+				    					echo '<div class="row" id="edit-id-'.$member['ID'].'" style="display:none;">';
 				    						echo '<div class="col-sm-12">';
-				    							echo '<form action="'.self::url('/register/edit/'.$member['id']).'" method="POST" id="frmRegister" class="sky-form">';
+				    							echo '<form action="'.self::url('/register/edit/'.$member['ID']).'" method="POST" id="frmRegister" class="sky-form">';
 				                                    echo '<fieldset class="no-padding">';
 				                                        echo '<section id="personTable" class="no-margin">';
 				                                            echo '<div class="row">';
 				                                                echo '<section class="col-xs-6">';
 				                                                    echo '<label class="input">';
 				                                                        echo '<i class="icon-append fa fa-user"></i>';
-				                                                        echo '<input required type="text" name="id" placeholder="ID" value="'.$member['id'].'">';
+				                                                        echo '<input required type="text" name="id" placeholder="ID" value="'.$member['ID'].'">';
 				                                                    echo '</label>';
 				                                                echo '</section>';
 				                                                echo '<section class="col-xs-6">';
 				                                                    echo '<label class="input">';
 				                                                        echo '<i class="icon-append fa fa-calendar"></i>';
-				                                                        echo '<input required id="date" type="text" name="dateofbirth" value="'.$member['date_of_birth'].'" placeholder="Date of Birth">';
+				                                                        echo '<input required id="date" type="text" name="dateofbirth" value="'.$member['Date of Birth'].'" placeholder="Date of Birth">';
 				                                                    echo '</label>';
 				                                                echo '</section>';
 				                                                echo '<section class="col-xs-6">';
@@ -73,7 +73,7 @@
 				                                                echo '<section class="col-xs-6">';
 				                                                    echo '<label class="input">';
 				                                                        echo '<i class="icon-append fa fa-sort-numeric-asc"></i>';
-				                                                        echo '<input required type="text" name="weight" placeholder="Weight" value="'.$member['weight'].'">';
+				                                                        echo '<input required type="text" name="weight" placeholder="Weight" value="'.$member['Weight'].'">';
 				                                                    echo '</label>';
 				                                                echo '</section>';
 				                                                echo '<section class="col-xs-6">';
@@ -97,7 +97,7 @@
 				                                        echo '<section>';
 				                                            echo '<div class="row">';
 				                                                echo '<div class="col-md-8">';
-				                                                	echo '<button onclick="$(\'#profile-id-'.$member['id'].'\').show();$(\'#edit-id-'.$member['id'].'\').hide();$(\'#insert-new\').show();" class="btn btn-gray btn-icon btn-icon-left fa-chevron-left pull-left" type="button">';
+				                                                	echo '<button onclick="$(\'#profile-id-'.$member['ID'].'\').show();$(\'#edit-id-'.$member['ID'].'\').hide();$(\'#insert-new\').show();" class="btn btn-gray btn-icon btn-icon-left fa-chevron-left pull-left" type="button">';
 				                                                        echo '<span>Back</span>';
 				                                                    echo '</button>';
 				                                                echo '</div>';
@@ -111,25 +111,25 @@
 				                                echo '</form>';
 				    						echo '</div>';
 				    					echo '</div>';
-				    					echo '<div class="row" id="profile-id-'.$member['id'].'">';
+				    					echo '<div class="row" id="profile-id-'.$member['ID'].'">';
 				    						echo '<div class="col-sm-2">';
 				    							echo '<div class="thmb-img">';
 				                                	echo '<i class="fa fa-user"></i>';
 				                                echo '</div>';
 				    						echo '</div>';
 				    						echo '<div class="col-sm-9">';
-				    							echo '<div class="pull-right"><h4 class="title-large">'.$member['id'].'</h4></div>';
-				    							echo '<h4 class="title-large"><a href="#" onclick="$(\'#profile-id-'.$member['id'].'\').hide();$(\'#edit-id-'.$member['id'].'\').show();$(\'#insert-new\').hide();"><i class="fa fa-edit"></i></a> '.$member['name'].' </h4>';
+				    							echo '<div class="pull-right"><h4 class="title-large">'.$member['ID'].'</h4></div>';
+				    							echo '<h4 class="title-large"><a href="#" onclick="$(\'#profile-id-'.$member['ID'].'\').hide();$(\'#edit-id-'.$member['ID'].'\').show();$(\'#insert-new\').hide();"><i class="fa fa-edit"></i></a> '.$member['Name'].' </h4>';
 				    							echo '<div class="row">';
 				    								echo '<div class="col-sm-6">';
 				    									echo '<b>เพศ:</b> '.$gender.'<br>';
-				                                		echo '<b>น้ำหนัก:</b> 49 KG<br>';
+				                                		echo '<b>น้ำหนัก:</b> '.$member['Weight'].' KG<br>';
 				                                		echo '<b>อายุ:</b> '.$age.' ปี <br>';
 				    								echo '</div>';
 				    								echo '<div class="col-sm-6">';
-				    									echo '<b>วันเกิด:</b> '.$member['date_of_birth'].'<br>';
-				    									echo '<b>Created At:</b> '.date_format(date_create($member['created_at']),"Y/m/d H:i").'<br>';
-				                                		echo '<b>Update At:</b> '.date_format(date_create($member['updated_at']),"Y/m/d H:i");
+				    									echo '<b>วันเกิด:</b> '.$member['Date of Birth'].'<br>';
+				    									echo '<b>Created At:</b> '.date_format(date_create(date("Y-m-d H:i:s")),"Y/m/d H:i").'<br>';
+				                                		echo '<b>Update At:</b> '.date_format(date_create(date("Y-m-d H:i:s")),"Y/m/d H:i");
 				    								echo '</div>';
 				    							echo '</div>';
 				    						echo '</div>';
@@ -139,7 +139,6 @@
 	    					}
 	    				}
     				?>
-    								
     				<div class="col-sm-6" id="insert-new">
 	    				<div class="wp-block hero white" style="padding: 10px;">
 	    					<div class="row">
